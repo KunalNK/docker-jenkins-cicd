@@ -25,7 +25,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push docker-jenkins-cicd:1.1'
+				sh 'docker push $DOCKERHUB_CREDENTIALS_USR/docker-jenkins-cicd:1.1'
 			}
 		}
 	}
