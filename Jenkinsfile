@@ -18,6 +18,7 @@ pipeline{
 		stage('Login') {
 
 			steps {
+
 				sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
 			}
 		}
@@ -25,7 +26,8 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push $DOCKERHUB_CREDENTIALS_USR/docker-jenkins-cicd:1.1'
+                sh 'docker tag docker-jenkins-cicd:1.1 kunalk07/docker-jenkins-cicd:1.1'
+				sh 'docker push kunalk07/docker-jenkins-cicd:1.1'
 			}
 		}
 	}
