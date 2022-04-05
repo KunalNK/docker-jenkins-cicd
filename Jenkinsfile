@@ -3,7 +3,7 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('jenkins-cicd')
+		DOCKERHUB_CREDENTIALS=credentials('jenkins-docker-hub')
 	}
 
 	stages {
