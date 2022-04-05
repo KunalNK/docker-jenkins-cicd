@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t docker-jenkins-cicd:1.1 .'
+				sh 'docker build -t docker-jenkins-cicd:1.0 .'
 			}
 		}
 
