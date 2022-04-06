@@ -3,7 +3,7 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('docker-jenkins')
+		DOCKERHUB_CREDENTIALS=credentials('dockerhub-credentials')
 	}
 
 	stages {
@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t docker-jenkins-cicd:1.0 .'
+				sh 'docker build -t docker-jenkins-cicd:1.3 .'
 			}
 		}
 
@@ -26,8 +26,8 @@ pipeline{
 		stage('Push') {
 
 			steps {
-                sh 'docker tag docker-jenkins-cicd:1.2 $DOCKERHUB_CREDENTIALS_USR/docker-jenkins-cicd:1.0'
-				sh 'docker push $DOCKERHUB_CREDENTIALS_USR/docker-jenkins-cicd:1.0'
+                sh 'docker tag docker-jenkins-cicd:1.3 $DOCKERHUB_CREDENTIALS_USR/docker-jenkins-cicd:1.3'
+				sh 'docker push $DOCKERHUB_CREDENTIALS_USR/docker-jenkins-cicd:1.3'
 			}
 		}
 	}
